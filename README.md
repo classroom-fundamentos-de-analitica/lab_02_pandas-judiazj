@@ -1,2 +1,3 @@
-# LAB_pandas
-LAB Pandas
+# Laboratorio
+
+Manipulación de datos usando Pandas.
