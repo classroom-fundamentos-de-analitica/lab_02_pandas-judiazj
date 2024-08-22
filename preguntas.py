@@ -166,11 +166,12 @@ def pregunta_10():
     """
     column = tbl0.groupby('_c1')['_c2'].apply(lambda x: ':'.join(map(str, sorted(x))))
     # TODO: verificar si es necesario las siguientes lineas segun como quede el test
-    # column.index.name = '_c0'
-    # column.name = '_c1'
+    column.index.name = '_c0'
+    column.name = '_c1'
     column = column.reset_index()
     return column
 
+print(pregunta_10())
 
 def pregunta_11():
     """
