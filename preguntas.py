@@ -164,11 +164,8 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    column = tbl0.groupby('_c1')['_c2'].apply(lambda x: ':'.join(map(str, sorted(x))))
-    # TODO: verificar si es necesario las siguientes lineas segun como quede el test
-    column.index.name = '_c0'
-    column.name = '_c1'
-    column = column.reset_index()
+    tbl0['_c2'] = tbl0['_c2'].astype(str)
+    column = tbl0.sort_values(['_c1', '_c2']).groupby('_c1')['_c2'].apply(':'.join).reset_index()
     return column
 
 print(pregunta_10())
