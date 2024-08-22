@@ -165,10 +165,8 @@ def pregunta_10():
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
     column = tbl0.groupby('_c1')['_c2'].apply(lambda x: ':'.join(map(str, sorted(x))))
-    # TODO: verificar si es necesario las siguientes lineas segun como quede el test
+    column = pd.DataFrame(column)
     column.index.name = '_c1'
-    column.name = '_c0'
-    column = column.reset_index()
     return column
 
 def pregunta_11():
